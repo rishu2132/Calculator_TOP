@@ -36,9 +36,11 @@ body{
 #result{
     height: 20vh;
     margin-bottom: 0px;
-       border: 1px solid blue;
+    border: 1px solid blue;
     margin: 20px;
     padding: 10px;
+    font-size: 24px;
+    font-weight: 500;
     background-color:white;
     
 }

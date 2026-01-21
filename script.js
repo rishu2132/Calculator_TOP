@@ -17,26 +17,108 @@ function division(a,b){
 function operate(op,a,b){
     return op(a,b)
 }
-const result = document.getElementById("result")
-let number = 0
-let digit = '';
-document.addEventListener('click',(e)=>{
-    if(e.target.classList.contains("btn")){
-        // console.log(typeof(e.target.innerText));
-        const data = e.target.innerText;
+const result = document.querySelector("[data-result");
+const numberButton = document.querySelectorAll("[data-number]");
+const operatorButton = document.querySelectorAll("[data-operator]");
+let number = '';
+let operation = undefined;
+let num1,num2;
+let operatorCount = 0;
 
-        while (true){
+
+numberButton.forEach(button =>{
+        button.addEventListener("click", () =>{
+            if (button.innerText === '.' && number.includes(".")) return
+            number = number + button.innerText;
+            num1 = parseFloat(number.split(operation)[0]);
+            num2 = parseFloat(number.split(operation)[1]);
             
-            digit = digit + data;
-            console.log(digit);
-            number = parseInt(digit);
-            console.log(number)
-            break
+            showDisplay();
+        })
+    })
+
+operatorButton.forEach(button =>{
+    button.addEventListener("click",()=>{
+        
+        number = number + button.innerText;
+        let nextOperation = button.innerText;
+        
+        operatorCount+=1;
+        if (operatorCount === 2){
+            number = calculate();
+            number = number.toString() + nextOperation;
+            operatorCount = 1;
         }
+        operation = button.innerText;
         
         
-    }
+        showDisplay();
+        
+    })
+
 })
+
+function calculate(){
+    let total;
+
+    switch(operation){
+        case '+':
+            total = num1+num2;
+            break
+        case '-':
+            total = num1-num2;
+            break
+        case '*':
+            total = num1*num2;
+            break
+        case '/':
+            total = num1/num2;
+            break
+        default:
+            return
+        
+    
+    }
+  
+    console.log(total)
+    return total
+}
+
+function showDisplay(){
+    result.innerText = number;
+}
+
+function clearAll(){
+
+}
+
+function deleteText(){
+
+}
+
+
+
+
+// const result = document.getElementById("result")
+// let number = 0
+// let digit = '';
+// document.addEventListener('click',(e)=>{
+//     if(e.target.classList.contains("btn")){
+//         // console.log(typeof(e.target.innerText));
+//         const data = e.target.innerText;
+
+//         while (true){
+            
+//             digit = digit + data;
+//             console.log(digit);
+//             number = parseInt(digit);
+//             console.log(number)
+//             break
+//         }
+        
+        
+//     }
+// })
 
 
 
