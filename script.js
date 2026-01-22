@@ -35,9 +35,11 @@ numberButton.forEach(button =>{
         button.addEventListener("click", () =>{
             if (button.innerText === '.' && number.includes(".")) return
             number = number + button.innerText;
+            console.log(`algebraic ${number}`)
             num1 = parseFloat(number.split(operation)[0]);
             num2 = parseFloat(number.split(operation)[1]);
-            
+            console.log(`num1 ${num1}`);
+            console.log(`num2 ${num2}`)
             showDisplay();
         })
     })
@@ -47,10 +49,11 @@ operatorButton.forEach(button =>{
         
         number = number + button.innerText;
         let nextOperation = button.innerText;
-        
+        console.log(`opeartion ${number}`)
         operatorCount+=1;
         if (operatorCount === 2){
             number = calculate();
+            console.log(number);
             number = number.toString() + nextOperation;
             operatorCount = 1;
         }
@@ -103,34 +106,14 @@ equalButton.addEventListener("click",() => {
 }
 )
 
-function deleteText(){
-
-}
-
-
-
-
-// const result = document.getElementById("result")
-// let number = 0
-// let digit = '';
-// document.addEventListener('click',(e)=>{
-//     if(e.target.classList.contains("btn")){
-//         // console.log(typeof(e.target.innerText));
-//         const data = e.target.innerText;
-
-//         while (true){
-            
-//             digit = digit + data;
-//             console.log(digit);
-//             number = parseInt(digit);
-//             console.log(number)
-//             break
-//         }
-        
-        
-//     }
-// })
-
+clearButton.addEventListener("click",() => {
+    number = '';
+    operation = '';
+    operatorCount = 0;
+    showDisplay();
+    
+    
+})
 
 
 

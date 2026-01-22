@@ -5,7 +5,7 @@
 Commit [21 Jan 26]
 - made the function for calculation that works and show the result in the result section.
 
-- [ ] Add clear function.
+- [x] Add clear function.
 - [ ] Add css to make it look lively.
 - [x] Add equal function.
 - [ ] Add backspace function.
