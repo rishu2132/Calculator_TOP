@@ -7,5 +7,5 @@ Commit [21 Jan 26]
 
 - [ ] Add clear function.
 - [ ] Add css to make it look lively.
-- [ ] Add equal function.
+- [x] Add equal function.
 - [ ] Add backspace function.

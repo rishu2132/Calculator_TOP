@@ -17,9 +17,14 @@ function division(a,b){
 function operate(op,a,b){
     return op(a,b)
 }
-const result = document.querySelector("[data-result");
+const result = document.querySelector("[data-result]");
 const numberButton = document.querySelectorAll("[data-number]");
 const operatorButton = document.querySelectorAll("[data-operator]");
+const clearButton = document.querySelector("[data-clear]");
+const equalButton = document.querySelector("[data-equal]");
+
+
+
 let number = '';
 let operation = undefined;
 let num1,num2;
@@ -88,9 +93,15 @@ function showDisplay(){
     result.innerText = number;
 }
 
-function clearAll(){
+equalButton.addEventListener("click",() => {
 
+    if (num1 !== undefined || num2 !== undefined){
+        number = calculate();
+        showDisplay();
+    }
+    else alert("add a valid expression ! ")
 }
+)
 
 function deleteText(){
 
