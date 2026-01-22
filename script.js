@@ -53,9 +53,16 @@ operatorButton.forEach(button =>{
         operatorCount+=1;
         if (operatorCount === 2){
             number = calculate();
+            if(number === undefined) {
+                clearAll();
+                showDisplay();
+            }
+            else {
+                number = number.toString() + nextOperation;
+                operatorCount = 1;
+            }
             console.log(number);
-            number = number.toString() + nextOperation;
-            operatorCount = 1;
+            
         }
         operation = button.innerText;
         
@@ -80,7 +87,12 @@ function calculate(){
             total = num1*num2;
             break
         case '/':
+            if(num2 === 0) {
+                alert("Do not try to divide a number by 0")
+                return 
+            };
             total = num1/num2;
+            total = parseFloat((total).toFixed(2));
             break
         default:
             return
@@ -107,14 +119,16 @@ equalButton.addEventListener("click",() => {
 )
 
 clearButton.addEventListener("click",() => {
-    number = '';
-    operation = '';
-    operatorCount = 0;
+    clearAll();
     showDisplay();
     
     
 })
 
 
-
+function clearAll(){
+    number = '';
+    operation = '';
+    operatorCount = 0;
+}
 
